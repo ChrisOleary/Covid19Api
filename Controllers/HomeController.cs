@@ -20,8 +20,7 @@ namespace Covid19Api.Controllers
 
         public IActionResult Index()
         {
-            //TODO: change this to show proper data
-            //Do some more things
+   
             return View();
         }
 
@@ -34,7 +33,7 @@ namespace Covid19Api.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            //TODO: change this to show proper data
+
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
