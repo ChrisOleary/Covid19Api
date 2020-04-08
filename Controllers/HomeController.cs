@@ -20,6 +20,7 @@ namespace Covid19Api.Controllers
 
         public IActionResult Index()
         {
+            //TODO: change this to show proper data
             return View();
         }
 
