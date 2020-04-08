@@ -21,12 +21,13 @@ namespace Covid19Api.Controllers
         public IActionResult Index()
         {
             //TODO: change this to show proper data
+            //Do some more things
             return View();
         }
 
         public IActionResult Privacy()
         {
-            //TODO: change this to show proper data
+    
             return View();
         }
 
