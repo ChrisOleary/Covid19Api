@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Covid19Api.Models;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace Covid19Api.Controllers
 {
@@ -18,17 +20,25 @@ namespace Covid19Api.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<ActionResult> Index()
         {
-   
-            return View();
+            //All API Data
+            var CoronaApi = await CoronaApi<ApiRootObject>();
+            return View(CoronaApi);         
         }
 
-        public IActionResult Privacy()
+        // GET CovidAPI
+        [HttpGet]
+        static async Task<T> CoronaApi<T>()
         {
-    
-            return View();
+            string url = "https://api.covid19api.com/summary";
+            var client = new HttpClient();
+            var result = await client.GetStringAsync(url);
+            var DeserializeObject = JsonConvert.DeserializeObject<T>(result);
+
+            return DeserializeObject;
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

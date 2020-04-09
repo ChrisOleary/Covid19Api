@@ -21,9 +21,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -31,14 +28,15 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            there should be icons here
+            <i class="fas fa-virus" style="font-family: 'FontAwesome' !important;"></i>
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - Covid19Api - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+            &copy; 2020 - Covid19Api
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
