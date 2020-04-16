@@ -8,42 +8,34 @@ using Microsoft.Extensions.Logging;
 using Covid19Api.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Covid19Api.Services;
+using Autofac;
 
 namespace Covid19Api.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IAPIService _apiService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IAPIService apiservice)
         {
-            _logger = logger;
+            _apiService = apiservice;
         }
 
         public async Task<ActionResult> Index()
         {
-            //All API Data
-            var CoronaApi = await CoronaApi<ApiRootObject>();
-            return View(CoronaApi);         
-        }
-
-        // GET CovidAPI
-        [HttpGet]
-        static async Task<T> CoronaApi<T>()
-        {
-            string url = "https://api.covid19api.com/summary";
-            var client = new HttpClient();
-            var result = await client.GetStringAsync(url);
-            var DeserializeObject = JsonConvert.DeserializeObject<T>(result);
-
-            return DeserializeObject;
+            var container = ContainerConfig.Configure();
+            var scope = container.BeginLifetimeScope();
+            var app = scope.Resolve<IAPIService>();
+            var response = await app.CoronaApi<ApiRootObject>();
+            
+            return View(response);
         }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
