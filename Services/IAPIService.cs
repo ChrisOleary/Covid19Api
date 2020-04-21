@@ -4,6 +4,6 @@ namespace Covid19Api.Services
 {
     public interface IAPIService
     {
-        Task<T> CoronaApi<T>();
+        Task<T> GetSummary<T>();
     }
 }

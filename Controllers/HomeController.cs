@@ -9,7 +9,6 @@ using Covid19Api.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Covid19Api.Services;
-using Autofac;
 
 namespace Covid19Api.Controllers
 {
@@ -24,10 +23,7 @@ namespace Covid19Api.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var container = ContainerConfig.Configure();
-            var scope = container.BeginLifetimeScope();
-            var app = scope.Resolve<IAPIService>();
-            var response = await app.CoronaApi<ApiRootObject>();
+            var response = await _apiService.GetSummary<ApiRootObject>();
             
             return View(response);
         }

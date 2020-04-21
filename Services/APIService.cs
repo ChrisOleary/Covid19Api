@@ -10,7 +10,7 @@ namespace Covid19Api.Services
 {
     public class APIService : IAPIService
     { 
-        public async Task<T> CoronaApi<T>()
+        public async Task<T> GetSummary<T>()
         {
             string url = "https://api.covid19api.com/summary";
             var client = new HttpClient();
