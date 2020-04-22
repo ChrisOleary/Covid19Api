@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Covid19Api.Services;
 
 namespace Covid19Api
 {
@@ -24,6 +25,7 @@ namespace Covid19Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IAPIService, APIService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

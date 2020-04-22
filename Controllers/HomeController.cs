@@ -6,34 +6,32 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Covid19Api.Models;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Covid19Api.Services;
 
 namespace Covid19Api.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IAPIService _apiService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IAPIService apiservice)
         {
-            _logger = logger;
+            _apiService = apiservice;
         }
 
-        public IActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            //TODO: change this to show proper data
-            return View();
+            var response = await _apiService.GetSummary<ApiRootObject>();
+            
+            return View(response);
         }
 
-        public IActionResult Privacy()
-        {
-            //TODO: change this to show proper data
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            //TODO: change this to show proper data
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
