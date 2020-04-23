@@ -9,26 +9,41 @@ using System.Threading.Tasks;
 
 namespace Covid19Api.Services
 {
-    public class APIService
+    public class APIService : IAPIService
     {
-        // added this
         public HttpClient Client { get; private set; }
         public APIService(HttpClient httpClient)
         {
-            httpClient.BaseAddress = new Uri("https://api.covid19api.com/summary");
+            httpClient.BaseAddress = new Uri("https://api.covid19api.com");
             Client = httpClient;
         }
-        // ! added this
 
-        public async Task<ApiRootObject> GetSummary()
+        public async Task<T> GetSummary<T>()
         {
             string url = "https://api.covid19api.com/summary";
             
             var result = await Client.GetStringAsync(url);
-            var DeserializeObject = JsonConvert.DeserializeObject<ApiRootObject>(result);
+            var DeserializeObject = JsonConvert.DeserializeObject<T>(result);
 
             return DeserializeObject;
         }
 
+        
+        public async Task<T> GetCountry<T>()
+        {
+            string url = "https://api.covid19api.com/countries";
+
+            var result = await Client.GetStringAsync(url);
+            var DeserializeObject = JsonConvert.DeserializeObject<T>(result);
+
+            return DeserializeObject;
+        }
+
+
+
     }
 }
+
+
+
+

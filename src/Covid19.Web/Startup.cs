@@ -25,10 +25,7 @@ namespace Covid19Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddScoped<IAPIService, APIService>();
-            
-            // added this
-            services.AddHttpClient<APIService>();
+            services.AddHttpClient<IAPIService, APIService>();
 
         }
 

@@ -14,18 +14,24 @@ namespace Covid19Api.Controllers
 {
     public class HomeController : Controller
     { 
-        private readonly APIService _apiService;
+        private readonly IAPIService _apiService;
 
-        public HomeController(APIService apiservice)
+        public HomeController(IAPIService apiservice)
         {
             _apiService = apiservice;
         }
 
         public async Task<ActionResult> Index()
         {
-            var response = await _apiService.GetSummary();
+            var response = await _apiService.GetSummary<ApiRootObject>();
 
+            return View(response);
+        }
 
+        public async Task<ActionResult> Countries()
+        {
+            var response = await _apiService.GetCountry<List<Countries>>();
+            
             return View(response);
         }
 
