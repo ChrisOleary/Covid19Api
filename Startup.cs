@@ -25,7 +25,11 @@ namespace Covid19Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<IAPIService, APIService>();
+            //services.AddScoped<IAPIService, APIService>();
+            
+            // added this
+            services.AddHttpClient<APIService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

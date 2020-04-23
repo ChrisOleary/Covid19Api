@@ -13,18 +13,19 @@ using Covid19Api.Services;
 namespace Covid19Api.Controllers
 {
     public class HomeController : Controller
-    {
-        private readonly IAPIService _apiService;
+    { 
+        private readonly APIService _apiService;
 
-        public HomeController(IAPIService apiservice)
+        public HomeController(APIService apiservice)
         {
             _apiService = apiservice;
         }
 
         public async Task<ActionResult> Index()
         {
-            var response = await _apiService.GetSummary<ApiRootObject>();
-            
+            var response = await _apiService.GetSummary();
+
+
             return View(response);
         }
 
