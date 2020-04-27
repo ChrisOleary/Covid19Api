@@ -11,14 +11,23 @@ namespace Covid19Api.Models
         public string Country { get; set; }
         public string CountryCode { get; set; }
         public string Slug { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public int NewConfirmed { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public int TotalConfirmed { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public int NewDeaths { get; set; }
 
-        //[DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public int TotalDeaths { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public int NewRecovered { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N0}")]
         public int TotalRecovered { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy hh:mm}")]

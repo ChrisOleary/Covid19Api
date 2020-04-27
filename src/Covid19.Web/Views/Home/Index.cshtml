@@ -4,18 +4,20 @@
     ViewData["Title"] = "Covid-19";
 }
 
-<h1>Covid-19 <strong>covid19api.com </strong> </h1><i class="fas fa-virus"> </i>
+    <h1>API data from <strong>covid19api.com </strong> <i style="color:red" class="fas fa-virus"> </i> </h1>
 
-<p><button onclick="sortTable()">Sort</button></p>
+
+
+@*<p><button onclick="sortTable()">Sort</button></p>*@
 
 <table class="table table-striped" id="myTable">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Countries[0].TotalDeaths)
+                @Html.DisplayNameFor(model => model.Countries[0].Country)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Countries[0].Country)
+                @Html.DisplayNameFor(model => model.Countries[0].TotalDeaths)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Countries[0].NewConfirmed)
@@ -42,10 +44,10 @@
         {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TotalDeaths)
+                @Html.DisplayFor(modelItem => item.Country)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Country)
+                @Html.DisplayFor(modelItem => item.TotalDeaths)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NewConfirmed)
@@ -70,7 +72,7 @@
     </tbody>
 </table>
 
-<script>
+@*<script>
     function sortTable() {
         var table, rows, switching, i, x, y, shouldSwitch;
         table = document.getElementById("myTable");
@@ -104,4 +106,4 @@
         }
         }
     }
-</script>
+</script>*@
