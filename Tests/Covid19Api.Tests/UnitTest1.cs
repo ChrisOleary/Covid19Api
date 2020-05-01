@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Covid19Api.Tests
 {
-    public class UnitTest1
+    public class CovidServiceTests
     {
         [Fact]
         public async Task return_newconfirmed_single_value()
@@ -21,18 +21,10 @@ namespace Covid19Api.Tests
 
             var client = mockHttp.ToHttpClient();
 
-            var apiservice = new APIService(client);
+            var apiservice = new CovidService(client);
             var user = await apiservice.GetSummary<ApiRootObject>();
 
             user.Global.NewConfirmed.ShouldBe(100);
-
-            //var t1 = new ApiRootObject() 
-            //    { 
-            //        Global = new Global { NewConfirmed = 5, NewDeaths = 5, NewRecovered = 5}
-            //    };
-
-            //t1.Global.NewConfirmed.ShouldBe(5);
-           
         }
 
         [Fact]
@@ -46,7 +38,7 @@ namespace Covid19Api.Tests
 
             var client = mockHttp.ToHttpClient();
 
-            var apiservice = new APIService(client);
+            var apiservice = new CovidService(client);
             var user = await apiservice.GetCountry<SingleCountry>();
 
             user.Country.ShouldBe("Barbados");

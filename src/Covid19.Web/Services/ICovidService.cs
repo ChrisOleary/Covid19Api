@@ -2,7 +2,7 @@
 
 namespace Covid19Api.Services
 {
-    public interface IAPIService
+    public interface ICovidService
     {
         Task<ApiRootObject> GetSummary<ApiRootObject>();
         Task<Countries> GetCountry<Countries>();

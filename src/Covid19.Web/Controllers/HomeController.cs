@@ -14,9 +14,9 @@ namespace Covid19Api.Controllers
 {
     public class HomeController : Controller
     { 
-        private readonly IAPIService _apiService;
+        private readonly ICovidService _apiService;
 
-        public HomeController(IAPIService apiservice)
+        public HomeController(ICovidService apiservice)
         {
             _apiService = apiservice;
         }
