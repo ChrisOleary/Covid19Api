@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Covid19Api.Models.Country>
+﻿@model IEnumerable<Covid19Api.Models.Countries>
 
 @{
     ViewData["Title"] = "Countries";
@@ -10,7 +10,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Country)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Slug)
@@ -24,7 +24,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Country)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Slug)
