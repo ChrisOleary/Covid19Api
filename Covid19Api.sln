@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid19Api", "Covid19Api.csproj", "{5F04874D-3F2D-4EB1-9D03-9865815C9425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid19Api", "src\Covid19.Web\Covid19Api.csproj", "{A6CA4CD4-AC88-4927-A2D0-F3A5F9A01039}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid19Api.Tests", "Tests\Covid19Api.Tests\Covid19Api.Tests.csproj", "{3B2E353A-BE16-432E-B4F7-0D5A6080664B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5F04874D-3F2D-4EB1-9D03-9865815C9425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F04874D-3F2D-4EB1-9D03-9865815C9425}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F04874D-3F2D-4EB1-9D03-9865815C9425}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F04874D-3F2D-4EB1-9D03-9865815C9425}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6CA4CD4-AC88-4927-A2D0-F3A5F9A01039}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6CA4CD4-AC88-4927-A2D0-F3A5F9A01039}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6CA4CD4-AC88-4927-A2D0-F3A5F9A01039}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6CA4CD4-AC88-4927-A2D0-F3A5F9A01039}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B2E353A-BE16-432E-B4F7-0D5A6080664B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B2E353A-BE16-432E-B4F7-0D5A6080664B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B2E353A-BE16-432E-B4F7-0D5A6080664B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B2E353A-BE16-432E-B4F7-0D5A6080664B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

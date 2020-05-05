@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Covid19Api.Models.Countries>
+
+@{
+    ViewData["Title"] = "Countries";
+}
+
+<h1>Countries <i class="fas fa-flag" style="color:cornflowerblue"></i></h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slug)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISO2)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISO2)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
