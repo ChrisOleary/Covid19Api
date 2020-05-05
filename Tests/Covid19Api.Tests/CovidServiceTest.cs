@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Covid19Api.Tests
 {
-    public class CovidServiceTests
+    public class CovidServiceTest
     {
         [Fact]
         public async Task return_newconfirmed_single_value()
